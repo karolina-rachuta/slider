@@ -2,7 +2,24 @@
 :root {
     --sliderHeight: 400px;
 }
+@font-face {
+    font-family: 'Roboto Black';
+    src: url('../fonts/roboto-black-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 
+}
+
+
+
+
+@font-face {
+    font-family: 'Roboto Light Italic';
+    src: url('../fonts/roboto-lightitalic-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+
+}
 .slider {
     background-color: peru;
     /*overflow: hidden;*/
@@ -55,21 +72,25 @@
     /*wysokosc tego bkg color zalezy od ilosci tekstu*/
     color: white;
     /*o robi tlo backgroundu i czcionki*/
-    font-family: 'Roboto', sans-serif;
+    /*font-family: 'Roboto', sans-serif;*/
 /*    wybiera czcionki od lewej do prawej*/
 }
 
 .slider .slider__hdl {
-    font-weight: 500;
+
+    font-family: 'Roboto Black', sans-serif;
+    /*font-weight: 500;*/
 }
 
 .slider .slider__lead {
-    font-weight: 300;
+    font-family: 'Roboto Light Italic', sans-serif;
+    /*font-weight: 300;*/
 }
 
 .slider .slider__link {
     color: inherit;
-    font-weight: 500;
+    font-family: 'Roboto Black', sans-serif;
+    /*font-weight: 500;*/
     text-decoration: none;
     /*    czemu nie dziedziczy koloru po rodzicu, color:white; bo ma swoj by default, robimy aby dziedziczyl od rodzicow by inherit*/
 }
