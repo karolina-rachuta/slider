@@ -24,12 +24,66 @@
     0% {
         left: 0;
     }
-    100% {
+    20% {
+        left: 0;
+    }
+    40% {
         left: -100%;
+    }
+    60% {
+        left: -100%;
+    }
+    80% {
+        left: -200%;
+    }
+    100% {
+        left: -200%;
     }
 
 }
 
+/*mozna sobie to wyobrazic jako 10 s*/
+
+@keyframes slide-2 {
+    0% {
+        left: 100%;
+    }
+    20% {
+        left: 100%;
+    }
+    40% {
+        left: 0;
+    }
+    60% {
+        left: 0;
+    }
+    80% {
+        left: -100%;
+    }
+    100% {
+        left: -100%;
+    }
+}
+@keyframes slide-3 {
+    0% {
+        left: 200%;
+    }
+    20% {
+        left: 200%;
+    }
+    40% {
+        left: 100%;
+    }
+    60% {
+        left: 100%;
+    }
+    80% {
+        left: 0;
+    }
+    100% {
+        left: 0;
+    }
+}
 .slider {
     background-color: peru;
     overflow: hidden;
@@ -52,10 +106,10 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    animation-duration: 4s;
+    animation-duration: 10s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-/*    bo wszystkie bede miec animacje o tym samym czasie*/
+    /*    bo wszystkie bede miec animacje o tym samym czasie*/
 }
 
 .slider .slider__slide:first-child {
@@ -69,11 +123,13 @@
 .slider .slider__slide:nth-child(2) {
     background-image: url("../images/slide-4.jpeg");
     left: 100%;
+    animation-name: slide-2;
 }
 
 .slider .slider__slide:last-child {
     background-image: url("../images/slide-3.jpeg");
     left: 200%;
+    animation-name: slide-3;
 }
 
 .slider .slider__box {
