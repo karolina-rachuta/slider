@@ -64,6 +64,7 @@
         left: -100%;
     }
 }
+
 @keyframes slide-3 {
     0% {
         left: 200%;
@@ -84,11 +85,13 @@
         left: 0;
     }
 }
+
 .slider {
     background-color: peru;
     overflow: hidden;
     width: 100%;
     min-height: var(--sliderHeight);
+    position: relative;
 }
 
 .slider .slider__slides {
@@ -166,13 +169,69 @@
     font-family: 'Roboto Black', sans-serif;
     /*font-weight: 500;*/
     text-decoration: none;
+    text-transform: uppercase;
     /*    czemu nie dziedziczy koloru po rodzicu, color:white; bo ma swoj by default, robimy aby dziedziczyl od rodzicow by inherit*/
 }
 
+/*.slider .slider__link::before {*/
+/*    content: "before text";*/
+/*}*/
+/*!*trzeba wpisac content!*!*/
+
+.slider .slider__link::after {
+    content: " ";
+    background-image: url("../images/read-more-item.svg");
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background-size: contain;
+    vertical-align: middle;
+    margin-top: -3px;
+}
+
+/*trzeba wpisac content!*/
+/*ta ikonka dziala jako background, wiec aby sie nie powtrzala to no repeat*/
+
 .slider .slider__nav {
+    z-index: 10;
+    position: absolute;
+    /*    z index nie dziala z position static*/
+    top: 50%;
+    transform: translateY(-50%);
+    /*    w slider dalismy position relative, bo potrzebuje rodzica wzgledem ktorego bedzie dzialac*/
+    width: 100%;
 }
 
 .slider .slider__btn {
+    margin: 20px;
+    border: none;
+    width: 30px;
+    height: 30px;
+    background: url("../images/read-more-item.svg") no-repeat;
+    /*option i enter, robi shorthand*/
+    background-size: contain;
+    overflow: hidden;
+    text-indent: -999px;
+    /*    akapit, wciecie, ale napisy sa nadal w hyml wiec jak jest ten voice reader to przeczyta*/
+    /*    wszytsko co nie miesci sie za dzieckiem zostaje odciete- dziurka od klucza*/
+    transform: rotate(180deg);
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 400ms ease-in-out;
+
 }
 
+.slider .slider__btn.slider__btn--next {
+    position: absolute;
+    right: 0;
+    transform: rotate(0);
+}
 
+.slider .slider__btn:hover {
+    opacity: 1;
+    transform: scale(2) rotate(180deg);
+}
+
+.slider .slider__btn.slider__btn--next:hover {
+    transform: scale(2) rotate(0);
+}
