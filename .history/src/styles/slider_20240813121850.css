@@ -105,7 +105,7 @@
 }
 
 .slider .slider__slide:first-child {
-    background-image: url("../images/slide-1.jpg");
+    background-image: url("../images/slide-1.jpeg");
     left: 0;
     /*    to jest left na position absolute*/
     animation-name: slide-1;
@@ -113,13 +113,13 @@
 }
 
 .slider .slider__slide:nth-child(2) {
-    background-image: url("../images/slide-2.jpeg");
+    background-image: url("../images/slide-4.jpeg");
     left: 100%;
     animation-name: slide-2;
 }
 
 .slider .slider__slide:last-child {
-    background-image: url("../images/slide-3.webp");
+    background-image: url("../images/slide-3.jpeg");
     left: 200%;
     animation-name: slide-3;
 }
@@ -127,29 +127,45 @@
 .slider .slider__box {
     position: absolute;
     bottom: 0;
+    /*    tekst nie moze sie sklejac z ramka, dajemy padding*/
     padding: 20px;
     width: 100%;
+    /*    szerokosc jest szerokoscia rodzica, ale to tylko 100% content, wiec nie widzimy paadingu z prawej*/
     box-sizing: border-box;
     background-color: rgba(0, 0, 0, 0.7);
+    /*wysokosc tego bkg color zalezy od ilosci tekstu*/
     color: white;
+    /*o robi tlo backgroundu i czcionki*/
+    /*font-family: 'Roboto', sans-serif;*/
+    /*    wybiera czcionki od lewej do prawej*/
 }
 
 .slider .slider__hdl {
 
     font-family: 'Roboto Black', sans-serif;
+    /*font-weight: 500;*/
     margin-top: 0;
+    /*  aby wyrownac tekst*/
 }
 
 .slider .slider__lead {
     font-family: 'Roboto Light Italic', sans-serif;
+    /*font-weight: 300;*/
 }
 
 .slider .slider__link {
     color: inherit;
     font-family: 'Roboto Black', sans-serif;
+    /*font-weight: 500;*/
     text-decoration: none;
     text-transform: uppercase;
+    /*    czemu nie dziedziczy koloru po rodzicu, color:white; bo ma swoj by default, robimy aby dziedziczyl od rodzicow by inherit*/
 }
+
+/*.slider .slider__link::before {*/
+/*    content: "before text";*/
+/*}*/
+/*!*trzeba wpisac content!*!*/
 
 .slider .slider__link::after {
     content: " ";
@@ -162,11 +178,16 @@
     margin-top: -3px;
 }
 
+/*trzeba wpisac content!*/
+/*ta ikonka dziala jako background, wiec aby sie nie powtrzala to no repeat*/
+
 .slider .slider__nav {
     z-index: 10;
     position: absolute;
+    /*    z index nie dziala z position static*/
     top: 50%;
     transform: translateY(-50%);
+    /*    w slider dalismy position relative, bo potrzebuje rodzica wzgledem ktorego bedzie dzialac*/
     width: 100%;
 }
 
@@ -176,9 +197,12 @@
     width: 30px;
     height: 30px;
     background: url("../images/read-more-item.svg") no-repeat;
+    /*option i enter, robi shorthand*/
     background-size: contain;
     overflow: hidden;
     text-indent: -999px;
+    /*    akapit, wciecie, ale napisy sa nadal w hyml wiec jak jest ten voice reader to przeczyta*/
+    /*    wszytsko co nie miesci sie za dzieckiem zostaje odciete- dziurka od klucza*/
     transform: rotate(180deg);
     cursor: pointer;
     opacity: 0.5;
